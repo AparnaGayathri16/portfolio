@@ -1,0 +1,29 @@
+[
+  {
+    "id": "anna-university-rank",
+    "title": "Ranked 20th of 9,503 Candidates (Top 0.2%)",
+    "issuer": "Anna University",
+    "date": "2024",
+    "description": "Placed in the top 0.2% of candidates university-wide for the BE Computer Science and Engineering degree.",
+    "tags": [],
+    "link": "#"
+  },
+  {
+    "id": "oci-ai-foundations-associate",
+    "title": "Oracle Cloud Infrastructure AI Foundations Associate",
+    "issuer": "Oracle",
+    "date": "",
+    "description": "Validated foundational knowledge of AI and machine learning concepts on Oracle Cloud Infrastructure, including generative AI services.",
+    "tags": ["Oracle", "Cloud", "AI"],
+    "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=5211B9831FF272F10F1F7D27161F4A20B94CE5060EF81CB74F8188684AD9FCFA"
+  },
+  {
+    "id": "azure-ai-103",
+    "title": "Azure AI Apps and Agents Developer Associate (AI-103)",
+    "issuer": "Microsoft",
+    "date": "In Progress",
+    "description": "Building practical expertise in designing, building, and managing AI applications and agents on Microsoft Azure.",
+    "tags": ["Azure", "AI"],
+    "link": "#"
+  }
+]

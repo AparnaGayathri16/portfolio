@@ -1,0 +1,46 @@
+[
+  {
+    "id": "eye-cancer-detection",
+    "title": "Context-Aware Eyelid Cancer Detection using Vision Transformers",
+    "description": "MSc dissertation project at Trinity College Dublin: a two-stage ViT-B/16 pipeline that first learns normal periocular anatomy through self-supervised MAE pretraining (10k+ healthy eye images), then fine-tunes on a labelled eyelid-cancer dataset to classify lesions as benign or malignant — validated against an ImageNet-initialised baseline via ablation and interpreted with Grad-CAM.",
+    "tags": ["Computer Vision", "Deep Learning", "PyTorch", "Healthcare AI"],
+    "image": null,
+    "glyph": "◉",
+    "link": "#",
+    "github": "https://github.com/AparnaGayathri16/Vision-Transformer-Pipeline-for-Periocular-Eye-Cancer-Detection",
+    "date": "MSc Dissertation — Trinity College Dublin"
+  },
+  {
+    "id": "legalassist",
+    "title": "LegalAssist — AI Legal Assistant",
+    "description": "An AI assistant giving lawyers and junior advocates on-demand legal expertise: a chat frontend backed by a retrieval-augmented generation pipeline, where semantic search over legal-document vector embeddings grounds a dedicated text-generation service in real source material.",
+    "tags": ["LLM", "RAG", "NLP", "TypeScript", "Python"],
+    "image": null,
+    "glyph": "⚖",
+    "link": "#",
+    "github": "https://github.com/AparnaGayathri16/LegalAssist_Bolt_Chat",
+    "date": "Independent"
+  },
+  {
+    "id": "neurointel",
+    "title": "NeuroIntel — Multiple Disease Predictor",
+    "description": "An integrated diagnostic webapp combining imaging analysis with a symptom-based diagnosis module to improve neural-disorder prediction accuracy, covering Alzheimer's, brain tumor, and brain stroke detection alongside ML models for diabetes, heart, kidney, liver, and malaria. Built with Flask and deployed on Heroku; published as first-author research in IRJAEH, December 2024.",
+    "tags": ["Machine Learning", "Deep Learning", "Healthcare AI", "Flask"],
+    "image": null,
+    "glyph": "⚕",
+    "link": "https://doi.org/10.47392/IRJAEH.2024.0381",
+    "github": "https://github.com/AparnaGayathri16/NeuroIntel",
+    "date": "Published Research — Dec 2024"
+  },
+  {
+    "id": "meme-museum",
+    "title": "Meme Museum",
+    "description": "A full-stack webapp for generating, storing, and sharing memes from a keyword, with user accounts, IBM App ID authentication, and an admin panel for content moderation. Built with Flask, MongoDB, Express, and IBM Db2.",
+    "tags": ["Flask", "MongoDB", "JavaScript"],
+    "image": null,
+    "glyph": "▣",
+    "link": "#",
+    "github": "https://github.com/AparnaGayathri16/MemeMuseum",
+    "date": "Independent"
+  }
+]
