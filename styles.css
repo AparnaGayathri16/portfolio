@@ -1147,6 +1147,89 @@ html[data-theme="dark"] .chip:hover { color: var(--accent); }
 }
 
 /* ============================================================
+   CERTIFICATE PDF PREVIEW MODAL
+============================================================ */
+.cert-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cert-modal-overlay[hidden] { display: none; }
+.cert-modal-overlay.open { opacity: 1; }
+.cert-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 13, 26, 0.55);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.cert-modal {
+  position: relative;
+  width: min(820px, 100%);
+  height: min(94vh, 1100px);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 70px -20px rgba(20, 18, 40, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px) scale(0.97);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cert-modal-overlay.open .cert-modal { opacity: 1; transform: none; }
+.cert-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.cert-modal-head h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+.cert-modal-close {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-soft);
+  transition: background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+.cert-modal-close:hover { background: var(--bg-subtle); color: var(--text); }
+.cert-modal-close svg { width: 18px; height: 18px; }
+.cert-modal-body {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+.cert-modal-frame-wrap {
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+.cert-modal-frame { width: 100%; height: 100%; border: 0; background: var(--bg-subtle); }
+.cert-modal-foot {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ============================================================
    SCROLL REVEAL
 ============================================================ */
 .reveal {
@@ -1196,6 +1279,7 @@ html[data-theme="dark"] .chip:hover { color: var(--accent); }
   .footer { padding: 28px 20px; margin-top: 40px; }
 
   .toolbar-panel { width: calc(100vw - 40px); right: 0; }
+  .cert-modal { height: 92vh; }
 }
 
 @media (max-width: 480px) {

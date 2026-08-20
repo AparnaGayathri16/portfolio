@@ -73,8 +73,13 @@ function renderCerts(list, container) {
   }
   container.innerHTML = list.map(c => {
     const tags = (c.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
-    const link = (c.link && c.link !== '#')
-      ? `<div class="card-actions"><a class="card-action" href="${esc(c.link)}" target="_blank" rel="noopener">View credential →</a></div>` : '';
+    let actions = '';
+    if (c.link && c.link !== '#') {
+      const external = /^https?:\/\//i.test(c.link);
+      const attrs = external ? ' target="_blank" rel="noopener"' : '';
+      const label = c.linkLabel || 'View credential →';
+      actions = `<div class="card-actions"><a class="card-action" href="${esc(c.link)}"${attrs}>${esc(label)}</a></div>`;
+    }
     return `
       <article class="card" data-id="${esc(c.id)}">
         <div class="card-cover"><span class="glyph">✦</span></div>
@@ -85,7 +90,7 @@ function renderCerts(list, container) {
         <p class="card-desc">${esc(c.description || '')}</p>
         <div class="tags">${tags}</div>
         <div class="card-meta"><span>${esc(c.date || '')}</span></div>
-        ${link}
+        ${actions}
       </article>`;
   }).join('');
 }
@@ -255,6 +260,56 @@ shapesSwitch.addEventListener('click', () => {
   prefs.shapes = (prefs.shapes === 'off') ? 'on' : 'off';
   save(); applyPrefs();
 });
+
+/* ============================================================
+   CERTIFICATE PDF PREVIEW MODAL
+   - Opens with a fade animation for cards whose action button
+     carries data-pdf (a path to a local PDF certificate).
+============================================================ */
+const certModal = document.getElementById('certModal');
+if (certModal) {
+  const certModalFrame = document.getElementById('certModalFrame');
+  const certModalTitle = document.getElementById('certModalTitle');
+  const certModalOpenLink = document.getElementById('certModalOpenLink');
+  const certModalClose = document.getElementById('certModalClose');
+  let lastFocused = null;
+
+  function openCertModal(btn) {
+    const pdf = btn.dataset.pdf;
+    if (!pdf) return;
+    lastFocused = document.activeElement;
+    certModalTitle.textContent = btn.dataset.pdfTitle || 'Certificate';
+    certModalFrame.src = pdf;
+    certModalOpenLink.href = pdf;
+    certModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => certModal.classList.add('open'));
+    certModalClose.focus();
+  }
+
+  function closeCertModal() {
+    certModal.classList.remove('open');
+    document.body.style.overflow = '';
+    const onEnd = (e) => {
+      if (e.target !== certModal) return;
+      certModal.hidden = true;
+      certModalFrame.src = '';
+      certModal.removeEventListener('transitionend', onEnd);
+    };
+    certModal.addEventListener('transitionend', onEnd);
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.cert-pdf-btn');
+    if (btn) { openCertModal(btn); return; }
+    if (e.target.closest('[data-cert-modal-close]')) closeCertModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && certModal.classList.contains('open')) closeCertModal();
+  });
+}
 
 /* ============================================================
    CONTACT FORM (decorative validation only)

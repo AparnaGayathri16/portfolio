@@ -25,5 +25,15 @@
     "description": "Building practical expertise in designing, building, and managing AI applications and agents on Microsoft Azure.",
     "tags": ["Azure", "AI"],
     "link": "#"
+  },
+  {
+    "id": "musgrave-certifications",
+    "title": "Food Safety & Workplace Training Certifications",
+    "issuer": "Musgrave (Centra)",
+    "date": "2026",
+    "description": "Completed food safety, hygiene, and workplace training modules as part of my part-time role at Centra.",
+    "tags": ["Food Safety", "Training"],
+    "link": "centra-certificates.html",
+    "linkLabel": "View certificates →"
   }
 ]
